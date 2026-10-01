@@ -44,7 +44,7 @@ GPIO 总线采用 mode 3、MSB 优先，默认半周期 5µs、读转向等待 1
 
 `config/west.yml` 固定 ZMK custom-studio 分支、Zephyr 4.1 修复版和两个 DYA 模块的完整提交 SHA，传递依赖由这些固定 manifest 决定；Actions 还保存 `west-frozen.yml`。Python 工具锁定于 `ci/requirements.lock`。固件构建镜像固定 digest；启动程序固定 Adafruit 0.11.0 SHA、Git 子模块 SHA 和 Arm GNU 12.3.rel1 下载 SHA256。
 
-右侧使用完整 Newlib 数学库、GNU 静态初始化及较大的输入／RPC 线程栈；本地模块为所固定的上游 Studio C 源码补充 stdio 声明，不编辑下载依赖。升级时应重新确认这项兼容处理是否仍需要。
+右侧使用完整 Newlib 数学库、GNU 静态初始化及较大的输入／RPC 线程栈；本地模块为所固定的上游 Studio C 源码补充 stdio 声明，并提供 Arm GNU 14 Newlib 所需的弱 `_fini` 结束钩子，不编辑下载依赖。升级时应重新确认这些兼容处理是否仍需要。固件编译使用镜像内固定的 Python 工具集；`ci/requirements.lock` 用于启动程序和本地环境。
 
 升级时一次只改一组依赖，检查完整 Actions、47 键、Studio 解锁／保存、DYA 参数保存、分体重连和供电。不要把 revision 改成 main 来绕过失败。
 
