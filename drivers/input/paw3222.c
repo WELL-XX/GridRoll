@@ -118,12 +118,12 @@ static int sensor_start(const struct device *dev) {
     if (rc < 0) return rc;
     rc = write_reg(dev, REG_CPI_X, c->cpi / 38);
     if (rc == 0) rc = write_reg(dev, REG_CPI_Y, c->cpi / 38);
+    if (rc == 0) rc = read_reg(dev, REG_OPERATION, &op);
+    if (rc == 0) rc = write_reg(dev, REG_OPERATION, op | 0x18);
+    /* CPI and sleep control both require write protection to be disabled. */
     int protect = write_reg(dev, REG_PROTECT, 0x00);
     if (rc < 0) return rc;
     if (protect < 0) return protect;
-    rc = read_reg(dev, REG_OPERATION, &op);
-    if (rc == 0) rc = write_reg(dev, REG_OPERATION, op | 0x18);
-    if (rc < 0) return rc;
     const uint8_t clear[] = {REG_MOTION, REG_X, REG_Y, REG_DELTA_HI};
     for (size_t i = 0; i < ARRAY_SIZE(clear); i++) {
         uint8_t ignored;
