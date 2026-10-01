@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: MIT
+config GRIDROLL_PAW3222
+    bool "GridRoll PAW3222 single-wire input driver"
+    default y if DT_HAS_PANDAKB_PAW3222_SDIO_ENABLED
+    depends on GPIO && INPUT
+
+config GRIDROLL_PAW3222_LOG_LEVEL
+    int "PAW3222 log level (0 off, 1 error, 3 info, 4 debug)"
+    range 0 4
+    default 3
+    depends on GRIDROLL_PAW3222

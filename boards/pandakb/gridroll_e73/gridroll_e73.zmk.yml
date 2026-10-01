@@ -1,0 +1,7 @@
+file_format: "1"
+id: gridroll_e73
+name: GridRoll E73
+arch: arm
+type: board
+outputs: [usb, ble]
+url: https://github.com/WELL-XX/GridRoll

@@ -1,0 +1,5 @@
+board:
+  name: gridroll_e73
+  vendor: pandakb
+  socs:
+    - name: nrf52840

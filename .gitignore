@@ -1,0 +1,8 @@
+build/
+.cache/
+dependencies/
+.west/
+__pycache__/
+*.pyc
+.DS_Store
+artifacts/

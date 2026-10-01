@@ -1,0 +1,7 @@
+file_format: "1"
+id: gridroll
+name: GridRoll
+type: shield
+requires: [gridroll_e73]
+features: [keys, encoder, pointer, studio]
+siblings: [gridroll_left, gridroll_right]

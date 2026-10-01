@@ -1,0 +1,26 @@
+manifest:
+  version: "1.2"
+  remotes:
+    - name: cormoran
+      url-base: https://github.com/cormoran
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+  projects:
+    - name: zmk
+      remote: cormoran
+      revision: 1fc72aaff7a42bd533c1f4c9b3f23c5317c745f4
+      import: app/west.yml
+    - name: zephyr
+      remote: zmkfirmware
+      revision: 10ba6d0cb38bc3d258775d27982f707599320085
+      clone-depth: 1
+      import:
+        name-allowlist: [cmsis, hal_nordic, mbedtls, nanopb, tinycrypt]
+    - name: zmk-module-runtime-input-processor
+      remote: cormoran
+      revision: decf628d7ce5ed95b520c650824c28ea9de649c1
+    - name: zmk-feature-custom-settings
+      remote: cormoran
+      revision: c6a7fef3a3be3d3ace5de9a4b0628c6418cd1f3f
+  self:
+    path: config

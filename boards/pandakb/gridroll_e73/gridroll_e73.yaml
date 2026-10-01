@@ -1,0 +1,9 @@
+identifier: gridroll_e73
+name: GridRoll E73
+vendor: pandakb
+type: mcu
+arch: arm
+ram: 256
+flash: 1024
+toolchain: [zephyr, gnuarmemb]
+supported: [gpio, usb_device, ble]

@@ -1,0 +1,12 @@
+if SHIELD_GRIDROLL_LEFT || SHIELD_GRIDROLL_RIGHT
+config ZMK_KEYBOARD_NAME
+    default "GridRoll"
+config ZMK_SPLIT
+    default y
+config ZMK_POINTING
+    default y
+endif
+if SHIELD_GRIDROLL_RIGHT
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+endif
